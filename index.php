@@ -65,6 +65,33 @@
     </div>
   </form>
 
+  <h2>Les villes déja existantes dans la DB</h2>
+
+  <div>
+  <?php
+  try
+  {
+    // On se connecte à MySQL
+    $BD = new PDO('mysql:host=localhost;dbname=weatherapp;charset=utf8', 'root', 'user');
+  }
+  catch(Exception $e)
+  {
+    // En cas d'erreur, on affiche un message et on arrête tout
+    die('Erreur : '.$e->getMessage());
+  }
+
+  $resultat = $BD->query('SELECT * FROM Météo');
+
+  $donnees = $resultat->fetch();
+
+  while ($donnees = $resultat->fetch())
+  {
+  <input id="checkBox" type="checkbox">
+    <input type = "text" id="ville" name="ville" value="$ville"/>nom_de_la_ville
+  }
+  ?>
+  </div>
+
 
 </body>
 
